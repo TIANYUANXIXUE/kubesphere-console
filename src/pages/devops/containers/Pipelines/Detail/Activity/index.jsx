@@ -225,7 +225,7 @@ export default class Activity extends React.Component {
   getColumns = () => [
     {
       title: t('STATUS'),
-      width: '15%',
+      width: '10%',
       key: 'status',
       render: record =>
         getPipelineStatus(record)?.type === 'nostatus' || !record.result ? (
@@ -248,6 +248,20 @@ export default class Activity extends React.Component {
             {record.id}
           </Link>
         ),
+    },
+    {
+      title: '构建参数',
+      width: '20%',
+      key: 'parameters',
+      render: record => {
+        const parameters = get(record, '_originData.spec.parameters', [])
+        const paramsElement = []
+        parameters.forEach(parameter => {
+          const paramsText = `${parameter['name']}:${parameter['value']}`
+          paramsElement.push(<p>{paramsText}</p>)
+        })
+        return <div>{paramsElement}</div>
+      },
     },
     {
       title: t('COMMIT'),
@@ -285,7 +299,7 @@ export default class Activity extends React.Component {
     {
       title: t('LAST_MESSAGE'),
       dataIndex: 'causes',
-      width: '25%',
+      width: '15%',
       render: causes => get(causes, '[0].shortDescription', ''),
     },
     {
@@ -298,13 +312,13 @@ export default class Activity extends React.Component {
     {
       title: t('UPDATE_TIME_TCAP'),
       dataIndex: 'startTime',
-      width: '20%',
+      width: '15%',
       render: time =>
         time ? getLocalTime(time).format('YYYY-MM-DD HH:mm:ss') : '-',
     },
     {
       isHideable: false,
-      width: '10%',
+      width: '5%',
       key: 'action',
       render: record => {
         if (
@@ -325,6 +339,22 @@ export default class Activity extends React.Component {
         }
         return (
           <Button onClick={this.handleStop(record)} icon="stop" type="flat" />
+        )
+      },
+    },
+    {
+      title: '',
+      dataIndex: 'release',
+      width: '10%',
+      render: () => {
+        return (
+          <a
+            className="item-name"
+            href="http://url/path?param=value"
+            target="_blank"
+          >
+            {'发布'}
+          </a>
         )
       },
     },
