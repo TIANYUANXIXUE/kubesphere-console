@@ -37,7 +37,7 @@ RUN mv /kubesphere/package.json /out/
 ##############
 # Final Image
 ##############
-FROM node:12-alpine3.14 as base_os_context
+FROM docker.hub.configure.ottcn.com/devops/node:12-alpine3.14-ks as base_os_context
 
 RUN adduser -D -g kubesphere -u 1002 kubesphere && \
     mkdir -p /opt/kubesphere/console && \
