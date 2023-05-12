@@ -16,7 +16,7 @@ ADD . /kubesphere/
 # If you have trouble downloading the yarn binary, try the following:
 # RUN yarn config set registry https://registry.npmmirror.com
 
-RUN yarn && yarn cache clean && yarn build
+RUN yarn && yarn build
 
 # Copy local package
 #COPY dist/ /kubesphere/dist
