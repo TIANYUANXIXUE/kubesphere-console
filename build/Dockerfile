@@ -3,9 +3,9 @@
 # that can be found in the LICENSE file.
 
 # Prepare the build environment
-FROM node:12-alpine3.14 as builder
+FROM docker.hub.configure.ottcn.com/devops/node:12-alpine3.14-ks as builder
 
-ARG YARN_VERSION=1.22.4
+#ARG YARN_VERSION=1.22.4
 
 WORKDIR /kubesphere
 ADD . /kubesphere/
@@ -16,12 +16,12 @@ ADD . /kubesphere/
 # If you have trouble downloading the yarn binary, try the following:
 # RUN yarn config set registry https://registry.npmmirror.com
 
-#RUN yarn && yarn build
+RUN yarn && yarn build
 
 # Copy local package
-COPY dist/ /kubesphere/dist
-COPY server/ /kubesphere/server
-COPY package.json /kubesphere
+#COPY dist/ /kubesphere/dist
+#COPY server/ /kubesphere/server
+#COPY package.json /kubesphere
 
 # Copy compiled files
 RUN mkdir -p /out/server

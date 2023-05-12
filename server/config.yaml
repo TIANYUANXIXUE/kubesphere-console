@@ -51,8 +51,8 @@ client:
       url: https://kubesphere.io/docs
       api: https://kubesphere.io/docs/reference/api-docs/
     zh:
-      url: https://kubesphere.com.cn/docs
-      api: https://kubesphere.com.cn/docs/reference/api-docs/
+      url: https://kubesphere.io/zh/docs
+      api: https://kubesphere.io/zh/docs/reference/api-docs/
 
   # current support lanaguages
   supportLangs:
@@ -653,8 +653,8 @@ client:
     star: "https://github.com/kubesphere/kubesphere"
     githubFork: "https://github.com/kubesphere/kubesphere"
     slack: "https://kubesphere.slack.com/"
-    doc: "https://kubesphere.com.cn/docs/v3.3/"
-    forum: "https://kubesphere.com.cn/forum/"
+    doc: "https://kubesphere.io/zh/docs/v3.3/"
+    forum: "https://kubesphere.io/forum/"
     issues: "https://github.com/kubesphere/kubesphere/issues"
     contactUs: "https://kubesphere.cloud/ticket/"
     kse: "https://kubesphere.cloud/self-service/qkcp/"
