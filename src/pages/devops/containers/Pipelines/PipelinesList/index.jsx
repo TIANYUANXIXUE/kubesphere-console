@@ -305,11 +305,24 @@ export default class PipelinesList extends React.Component {
         return <Avatar to={isRun ? null : url} title={name} />
       },
     },
-
+    {
+      title: '备注',
+      dataIndex: 'comment',
+      width: '20%',
+      isHideable: true,
+      render: (name, record) => {
+        const description = get(
+          record,
+          '_originData.spec.pipeline.description',
+          ''
+        )
+        return <span>{description}</span>
+      },
+    },
     {
       title: t('HEALTH'),
       dataIndex: 'weatherScore',
-      width: '30%',
+      width: '10%',
       isHideable: true,
       render: weatherScore => <Health score={weatherScore} />,
     },
